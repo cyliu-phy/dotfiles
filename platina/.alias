@@ -1,0 +1,197 @@
+# QQ
+export qq=com.tencent.mobileqq
+# AliPay
+export ali=com.eg.android.AlipayGphone
+# Taobao
+export tb=com.taobao.taobao
+# Hello Bike
+export hl=com.jingyao.easybike
+# Mi Browser
+export mb=com.android.browser
+# WeChat
+export wx=com.tencent.mm
+# Amap
+export map=com.autonavi.minimap
+# Calculator
+export calc=com.miui.calculator
+# MiFit
+export fit=com.xiaomi.hm.health
+# CamScanner
+export cs=com.intsig.camscanner
+# Telegram
+export tg=org.telegram.messenger
+# Compass
+export cps=com.miui.compass
+# Sprout
+export bill=melandru.lonicera
+# Coolapk
+export ca=com.coolapk.market
+# File Explorer
+export fm=com.android.fileexplorer
+# Metro
+export mtr=com.app.shanghai.metro
+# WolframAlpha
+export wa=com.wolfram.android.alpha
+# Meituan
+export mt=com.sankuai.meituan
+# Screen Recorder
+export sr=com.miui.screenrecorder
+# jiaowoban
+export jwb=edu.sjtu.infoplus.taskcenter
+# Anki
+export anki=com.ichi2.anki
+# Dida
+export dida=cn.ticktick.task
+# Frhelper
+export frh=com.eusoft.frhelper
+# 每日法语听力
+export tfr=com.qianyan2.ting.fr
+# Obsidian
+export qls=cn.com.langeasy.EasyListen
+# Netease Cloud Music
+export netease=com.netease.cloudmusic
+# Obsidian
+export obs=md.obsidian
+# Kiwi
+export kiwi=com.kiwibrowser.browser
+# hp quick drop
+export hp=com.hp.quickdrop
+# scene
+export scene=com.omarea.vtools
+# settings
+export settings=com.android.settings
+# RED
+export red=com.xingin.xhs
+# v2ray
+export v2ray=com.v2ray.ang
+# gallery
+export gallery=com.miui.gallery
+# remote
+export remote=com.duokan.phone.remotecontroller
+# Mi notes
+export note=com.miui.notes
+# Play Store
+export play=com.android.vending
+# Themes
+export theme=com.android.thememanager
+# Everphoto
+export everphoto=tc.everphoto
+# Scanner
+export scanner=com.xiaomi.scanner
+# Mi Fitness
+export fitness=com.mi.health
+# MI AI
+export ai=com.xiaomi.xiaoailite
+# Music
+export music=com.miui.player
+# Diary
+export diary=com.candydiary.dawn
+# Clash
+export clash=com.github.kr328.clash
+# Amap
+export amap=com.autonavi.minimap
+# Dazhong Dianping
+export dp=com.dianping.v1
+#Google Camera
+export gc=com.google.android.GoogleCameraEng
+# Google Play Service
+export gps=com.google.android.gms
+# scene
+export scene=com.omarea.vtools
+# Bilibili
+export bili=com.bilibili.app.in
+
+#################################
+
+#alias obs="termux-open obsidian://"
+alias obs="adb shell am start -n md.obsidian/.MainActivity"
+# Netease Cloud Music
+alias music="termux-open orpheus://"
+# WeChat
+#alias wx="termux-open weixin://"
+alias wx="adb shell am start -n com.tencent.mm/.ui.LauncherUI"
+# Alipay
+#alias ali="termux-open alipays://"
+alias ali="adb shell am start -n com.eg.android.AlipayGphone/com.alipay.mobile.quinox.LauncherActivity.alias"
+# AnkiDroid
+alias anki="adb shell am start -n com.ichi2.anki/.IntentHandler"
+# Frhelper
+alias frh="adb shell am start -n com.qianyan2.frhelper/com.eusoft.dict.activity.SplashActivity"
+# qlisten
+alias qls="adb shell am start -n cn.com.langeasy.EasyListen/cn.com.langeasy.LangEasyLrc.ui.SplashActivity"
+# dida
+alias dida="adb shell am start -n cn.ticktick.task/com.ticktick.task.activity.MeTaskActivity"
+# MiFit
+alias fit="adb shell am start -n com.xiaomi.hm.health/.activity.StartUpActivity"
+# Netease Cloud Music
+alias netease="adb shell am start -n com.netease.cloudmusic/.activity.LoadingActivity"
+# KiwiBrowser
+alias kiwi="adb shell am start -n com.kiwibrowser.browser/com.google.android.apps.chrome.Main"
+# Settings
+alias settings="adb shell am start -n com.android.settings/.MainSettings"
+# Recoder
+alias recorder="adb shell am start -n com.android.soundrecorder/.SoundRecorder"
+# Gallery
+alias gallery="adb shell am start -n com.miui.gallery/.activity.HomePageActivity"
+# Calender
+alias calendar="adb shell am start -n com.android.calendar/.homepage.AllInOneActivity"
+# Clock
+alias clock="adb shell am start -n com.android.deskclock/.DeskClockTabActivity"
+# Weather
+alias weather="adb shell am start -n com.miui.weather2/.ActivityWeatherMain"
+# Contacts
+alias contacts="adb shell am start -n com.android.contacts/.activities.PeopleActivity"
+# Phone
+alias dial="adb shell am start -n com.android.contacts/.activities.TwelveKeyDialer"
+# Getapps
+alias killmarket="adb shell am force-stop com.xiaomi.market"
+# Mail
+alias mail="adb shell am start -n com.android.email/com.wps.multiwindow.main.HomeActivity"
+# Files
+alias fm="adb shell am start -n com.android.fileexplorer/.MainActivity"
+# StorageAccessFramework
+alias saf="adb shell am start -n com.google.android.documentsui/com.android.documentsui.files.FilesActivity"
+# Message
+alias mms="adb shell am start -n com.android.mms/.ui.MmsTabActivity"
+# Home Launcher
+alias home="adb shell am start -n com.miui.home/.launcher.Launcher"
+# v2rayNG
+alias v2ray="adb shell am start -n com.v2ray.ang/.ui.MainActivity"
+# Tomatodo
+alias tomatodo="adb shell am start -n com.plan.kot32.tomatotime/.activity.MainActivity"
+
+#alias fr="adb shell pm disable-user "
+#alias ufr="adb shell pm enable "
+# termux-open
+alias open="termux-open"
+
+dis(){
+for i in $*
+do adb shell pm disable-user $i
+done
+}
+enb(){
+for i in $*
+do adb shell pm enable $i
+done
+}
+sus(){
+for i in $*
+do adb shell am force-stop $i;adb shell pm suspend $i
+done
+}
+uns(){
+for i in $*
+do adb shell pm unsuspend $i
+done
+}
+stop(){
+for i in $*
+do adb shell am force-stop $i
+done
+}
+
+# 随申码
+alias ssm="open alipays://platformapi/startapp\?appId=2019072665939857\&query=\&page=/pages/my-station-type/my-station-type"
+alias hl="enb com.jingyao.easybike"
+alias dhl="dis com.jingyao.easybike"
