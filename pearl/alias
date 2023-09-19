@@ -1,0 +1,138 @@
+#alias obs="termux-open obsidian://"
+alias obs="adb shell am start -n md.obsidian/.MainActivity"
+# Netease Cloud Music
+alias music="termux-open orpheus://"
+# WeChat
+#alias wx="termux-open weixin://"
+alias wx="adb shell am start -n com.tencent.mm/.ui.LauncherUI"
+# Alipay
+#alias ali="termux-open alipays://"
+alias ali="adb shell am start -n com.eg.android.AlipayGphone/com.alipay.mobile.quinox.LauncherActivity.alias"
+# AnkiDroid
+alias anki="adb shell am start -n com.ichi2.anki/.IntentHandler"
+# Frhelper
+alias frh="adb shell am start -n com.qianyan2.frhelper/com.eusoft.dict.activity.SplashActivity"
+# qlisten
+alias qls="adb shell am start -n cn.com.langeasy.EasyListen/cn.com.langeasy.LangEasyLrc.ui.SplashActivity"
+# dida
+alias dida="adb shell am start -n cn.ticktick.task/com.ticktick.task.activity.MeTaskActivity"
+# MiFit
+alias fit="adb shell am start -n com.xiaomi.hm.health/.activity.StartUpActivity"
+# Netease Cloud Music
+alias netease="adb shell am start -n com.netease.cloudmusic/.activity.MainActivity"
+# KiwiBrowser
+alias kiwi="adb shell am start -n com.kiwibrowser.browser/com.google.android.apps.chrome.Main"
+# Settings
+alias settings="adb shell am start -n com.android.settings/.MainSettings"
+# Recoder
+alias recorder="adb shell am start -n com.android.soundrecorder/.SoundRecorder"
+# Gallery
+alias gallery="adb shell am start -n com.miui.gallery/.activity.HomePageActivity"
+# Calender
+alias calendar="adb shell am start -n com.android.calendar/.homepage.AllInOneActivity"
+# Clock
+alias clock="adb shell am start -n com.android.deskclock/.DeskClockTabActivity"
+# Weather
+alias weather="adb shell am start -n com.miui.weather2/.ActivityWeatherMain"
+# Contacts
+alias contacts="adb shell am start -n com.android.contacts/.activities.PeopleActivity"
+# Phone
+alias dial="adb shell am start -n com.android.contacts/.activities.TwelveKeyDialer"
+# Getapps
+alias killmarket="adb shell am force-stop com.xiaomi.market"
+# Mail
+alias mail="adb shell am start -n com.android.email/com.wps.multiwindow.main.HomeActivity"
+# Files
+alias fm="adb shell am start -n com.android.fileexplorer/.MainActivity"
+# StorageAccessFramework
+alias saf="adb shell am start -n com.google.android.documentsui/com.android.documentsui.files.FilesActivity"
+# Message
+alias mms="adb shell am start -n com.android.mms/.ui.MmsTabActivity"
+# Home Launcher
+alias home="adb shell am start -n com.miui.home/.launcher.Launcher"
+# v2rayNG
+alias v2ray="adb shell am start -n com.v2ray.ang/.ui.MainActivity"
+# Tomatodo
+alias tomatodo="adb shell am start -n com.plan.kot32.tomatotime/.activity.MainActivity"
+# jwb
+alias jwb="adb shell am start -n edu.sjtu.infoplus.taskcenter/.DefaultQdAct"
+# hhwj
+alias hhwj="adb shell am start -n com.example.raccoon.dialogwidget/.app.activity.main.MainActivity"
+# Taobao
+alias tb="adb shell am start -n com.taobao.taobao/com.taobao.tao.welcome.Welcome"
+
+alias open="termux-open"
+
+sus(){
+for i in $*
+do adb shell am force-stop $i;adb shell pm suspend $i
+done
+}
+uns(){
+for i in $*
+do adb shell pm unsuspend $i
+done
+}
+stop(){
+for i in $*
+do adb shell am force-stop $i
+done
+}
+
+# 随申码
+alias ssm="open alipays://platformapi/startapp\?appId=2019072665939857\&query=\&page=/pages/my-station-type/my-station-type"
+alias hl="enb com.jingyao.easybike"
+alias dhl="dis com.jingyao.easybike"
+
+
+declare -A pkg=(
+    ["qq"]="com.tencent.mobileqq"
+    ["wx"]="com.tencent.mm"
+    ["tb"]="com.taobao.taobao"
+    ["red"]="com.xingin.xhs"
+    ["zhihu"]="com.zhihu.android"
+    ["bili"]="com.bilibili.app.in"
+    ["ca"]="com.coolapk.market"
+    ["ctrip"]="ctrip.android.view"
+    ["ali"]="com.eg.android.AlipayGphone"
+    ["alook"]="alook.browser"
+    ["map"]="com.autonavi.minimap"
+    ["db"]="com.douban.frodo"
+    ["tg"]="org.telegram.messenger"
+    ["everphoto"]="tc.everphoto"
+    ["contacts"]="com.android.contacts"
+    ["dp"]="com.dianping.v1"
+    ["discord"]="com.discord"
+    ["dp"]="com.dianping.v1"
+    ["theme"]="com.android.thememanager"
+    ["v2"]="com.v2ray.ang"
+    ["hl"]="com.jingyao.easybike"
+    ["mt"]="com.sankuai.meituan"
+    ["x"]="com.twitter.android"
+    ["thstore"]="com.miui.themestore"
+    ["fm"]="com.android.fileexplorer"
+    ["yt"]="com.google.android.youtube"
+)
+
+
+
+function dis(){
+    for arg in "$@"
+    do 
+        if [[ -v pkg[$arg] ]]; then
+            adb shell pm disable-user ${pkg[$arg]}
+        else
+            adb shell pm disable-user $arg
+        fi
+    done
+}
+function enb(){
+    for arg in "$@"
+    do 
+        if [[ -v pkg[$arg] ]]; then
+            adb shell pm enable ${pkg[$arg]}
+        else
+            adb shell pm enable $arg
+        fi
+    done
+}
